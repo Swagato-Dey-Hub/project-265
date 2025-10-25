@@ -1,4 +1,4 @@
-import React, { use, useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import {useForm} from 'react-hook-form'
 import axios from "axios";
 
@@ -14,17 +14,17 @@ function Home() {
     try {
       console.log("Form data:", data);
       const response = await axios.post("http://localhost:5000/api/getloanstatus", data);
-
       // Assuming your backend returns something like { prediction: "Approved" }
       console.log("Server response:", response.data);
-      setPrediction(response.data.prediction);
+      // sending loan status result from backend
+      console.log("Loan Status:", response.data.result.loan_status);
+      // setPrediction(response.data.prediction);
+      setPrediction(response.data.result.loan_status); 
     } catch (error) {
       console.error("Error connecting to backend:", error);
       setPrediction("Error fetching prediction");
     }
   };
-
-
 
   return (
     <>
@@ -78,12 +78,12 @@ function Home() {
         </div>
         <div className='flex flex-col'>
           <label >Applicantincome</label>
-          <input  {...register('Applicantincome')} className="h-9 w-[180px] border-1 p-1"/>
+          <input  {...register('ApplicantIncome')} className="h-9 w-[180px] border-1 p-1"/>
         </div>
         
         <div className='flex flex-col'>
           <label >CoApplicantincome</label>
-          <input {...register('CoApplicantincome')} className="h-9 w-[180px] border-1 p-1"/>
+          <input {...register('CoapplicantIncome')} className="h-9 w-[180px] border-1 p-1"/>
         </div>
         
         <div className='flex flex-col'>
@@ -111,13 +111,14 @@ function Home() {
         </div>
       </form>
 
-      <button type="submit" form="my-form" className='h-8 w-full mt-4 bg-blue-600 rounded-sm'>Predict Loan Approuval</button>
+      <button type="submit" form="my-form" className='h-8 w-full mt-4 bg-blue-600 rounded-sm text-white'>Predict Loan Approuval</button>
 
-      <div className='flex flex-col items-center mt-3'>
-      <div>Prediction Result:</div>
-      <div className='flex items-center gap-2'>
-        <label htmlFor="result">Loan Approved</label>
-        <input {...prediction} type="checkbox" className='h-5 w-5 accent-emerald-500 text-white'/>
+      <div className='flex justify-center items-center gap-2 mt-3'>
+      <div>Prediction Result :</div>
+      <div className='flex items-center justify-center gap-1 text-sm font-semibold'>
+        {prediction}
+
+       {/* <div className={`h-4 w-4 border-1 rounded-sm ${prediction}`}></div> */}
       </div>
     </div>
     </div>
