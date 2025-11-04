@@ -18,7 +18,7 @@ function Register({switchtoLogin}) {
           <div className='h-[75%] w-[70%] border-1 rounded-xl p-4 flex flex-col items-center justify-between'>
             <h1 className="font-bold text-2xl my-3">Register</h1>
             <form onSubmit={handleSubmit(onSubmit)} className='w-3/4 flex flex-col items-center gap-4 '>           
-              <input {...register('name')}type="text" name='fullname' placeholder='Fullname' className='h-10 w-full border-1 p-1 text-sm'/>
+              <input {...register('name')}type="text" name='name' placeholder='Fullname' className='h-10 w-full border-1 p-1 text-sm'/>
               <input {...register('email')} type="text"  placeholder='Email id' className='h-10 w-full border-1 p-1 text-sm'/>
               <input {...register('Phone number')} type="text"  placeholder='Phone number' className='h-10 w-full border-1 p-1 text-sm'/>
               <input {...register('Password')} type="text"  placeholder='Password' className='h-10 w-full border-1 p-1 text-sm'/>
