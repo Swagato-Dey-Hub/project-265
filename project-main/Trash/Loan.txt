@@ -1,0 +1,61 @@
+Dependents:
+Meaning: This represents the number of people financially dependent on the applicant.
+It includes children, spouses, or elderly family members who do not have an independent income.
+
+| Value | Interpretation           |
+| ----- | ------------------------ |
+| `0`   | No dependents            |
+| `1`   | One dependent            |
+| `2`   | Two dependents           |
+| `3+`  | Three or more dependents |
+
+Why it's important:
+
+More dependents → higher financial burden → may reduce the chance of loan approval.
+Used by banks to assess the repayment capacity of the applicant.
+
+
+CoapplicantIncome:
+Meaning: Income of the co-applicant (if any), such as a spouse or family member who is also applying for the loan along with the main applicant.
+
+It's measured in Indian Rupees (₹), just like ApplicantIncome.
+
+If there's no co-applicant, this value will be 0.
+
+Why it's important:
+
+A co-applicant with a steady income increases the total household income, which:
+
+Can improve loan eligibility
+Helps in approving larger loan amounts
+Reduces risk for the bank
+
+| ApplicantIncome | CoapplicantIncome | Total Income | Dependents | Loan\_Status |
+| --------------- | ----------------- | ------------ | ---------- | ------------ |
+| 5000            | 2000              | 7000         | 2          | Y (Approved) |
+| 4000            | 0                 | 4000         | 3+         | N (Rejected) |
+
+In the first row, coapplicant helps increase total income, and fewer dependents make the loan more likely to be approved.
+In the second row, a single low income and many dependents reduce approval chances.
+
+
+ApplicantIncome:
+The values in ApplicantIncome are in Indian Rupees (INR).
+
+
+Loan_Amount_Term:
+The Loan_Amount_Term column in your loan prediction dataset refers to:
+🔹 The duration of the loan – i.e., the number of months over which the loan will be repaid.
+| Loan\_Amount\_Term | Meaning               |
+| ------------------ | --------------------- |
+| 360                | 30 years (360 months) |
+| 180                | 15 years              |
+| 120                | 10 years              |
+| 60                 | 5 years               |
+| 36                 | 3 years               |
+| 12                 | 1 year                |
+
+
+understand how applicantincome co-applicantincome and loan amount term is matching each other. (Is the amounts are in rs only or whatever is is.)
+correcting the api in postman and check wheather it is running or not.
+create the backend endpoint where the data will go and evaluate using the ml model.

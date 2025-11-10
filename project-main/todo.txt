@@ -1,0 +1,6 @@
+Better navbar
+login user can only see profile button, logout user can't see profile button they will only see login button.
+make about page better
+make profile page better
+erase alert in login page after successful login, and add a interactive prompt
+make overall design better: change background, color, in button cursor pointer.
